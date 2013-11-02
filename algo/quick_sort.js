@@ -4,9 +4,9 @@ require("./array_ext");
 
 /// Returns indexes to the middle part (elements equal to partition element)
 function partition(arr, begin, end) {
-	var lt = begin,	// pointer to partition element, all element to the left will be less then partition element. Moves left -> right
-		i = lt + 1,	// pointer to processing element, moves left -> right
-		gt = end - 1; // pointer to the first element greater than partition element, moves right -> left
+	var lt = begin,	// pointer to partition element, all element to the left will be less then partition element. left -> right
+		i = lt + 1,	// pointer to processing element, left -> right
+		gt = end - 1; // pointer to the first element greater than partition element, right -> left
 
 	while (i <= gt) {
 		if (arr[i] < arr[lt]) {
@@ -27,7 +27,7 @@ function partition(arr, begin, end) {
 ///
 Array.prototype.quickSort = function() {
 	var partsToSort = [{begin: 0, end: this.length}];
-	
+
 	var split = (function(part) {
 		var ends = partition(this, part.begin, part.end);
 
