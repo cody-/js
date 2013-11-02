@@ -1,4 +1,5 @@
 // Realization of Knuth-Morris-Pratt algorythm for substring searching
+// ? hasOwnProperty check can have bad influence on performance
 
 require("./array_ext");
 
