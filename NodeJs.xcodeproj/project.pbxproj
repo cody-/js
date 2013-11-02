@@ -18,6 +18,8 @@
 		C3EF6FDF1824D7A80059B2AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		C3EF6FE11824DC490059B2AD /* merge_sort.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = merge_sort.js; sourceTree = "<group>"; };
 		C3EF6FE21824EB320059B2AD /* quick_sort.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = quick_sort.js; sourceTree = "<group>"; };
+		C3EF6FE318254BF80059B2AD /* heap_sort.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = heap_sort.js; sourceTree = "<group>"; };
+		C3EF6FE418254C730059B2AD /* binary_heap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = binary_heap.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -34,6 +36,8 @@
 		C3EF6FD21823D3140059B2AD /* algo */ = {
 			isa = PBXGroup;
 			children = (
+				C3EF6FE418254C730059B2AD /* binary_heap.js */,
+				C3EF6FE318254BF80059B2AD /* heap_sort.js */,
 				C3EF6FE21824EB320059B2AD /* quick_sort.js */,
 				C3EF6FE11824DC490059B2AD /* merge_sort.js */,
 				C3EF6FD91824D2E50059B2AD /* array_ext.js */,
