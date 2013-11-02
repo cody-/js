@@ -16,3 +16,21 @@ Array.prototype.findIf = function(predicate) {
 	}
 	return -1;
 }
+
+function rand(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+///
+Array.prototype.swap = function(i, j) {
+	var tmp = this[i];
+	this[i] = this[j];
+	this[j] = tmp;
+}
+
+/// Knuth shuffling
+Array.prototype.shuffle = function() {
+	for (var i = 1; i < this.length; ++i) {
+		this.swap(i, rand(0, i));
+	}
+}
