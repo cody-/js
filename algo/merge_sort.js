@@ -7,7 +7,7 @@ function merge(arr, lBegin, lEnd, rBegin, rEnd, outArr, outPos) {
 			outArr[outPos] = arr[i++];
 		} else if (i >= lEnd) {
 			outArr[outPos] = arr[j++];
-		} else if (arr[i] < arr[j]) {
+		} else if (arr[i] <= arr[j]) {
 			outArr[outPos] = arr[i++];
 		} else {
 			outArr[outPos] = arr[j++];
