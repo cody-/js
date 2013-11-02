@@ -28,6 +28,14 @@ Array.prototype.swap = function(i, j) {
 	this[j] = tmp;
 }
 
+///
+Array.prototype.copyFrom = function(arr, begin, end, insertPosition) {
+	for (var i = begin; i < end; ++i, ++insertPosition) {
+		this[insertPosition] = arr[i];
+	}
+	return insertPosition;
+}
+
 /// Knuth shuffling
 Array.prototype.shuffle = function() {
 	for (var i = 1; i < this.length; ++i) {

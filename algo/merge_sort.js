@@ -19,19 +19,21 @@ function merge(arr, lBegin, lEnd, rBegin, rEnd, outArr, outPos) {
 Array.prototype.mergeSort = function() {
 	var arr = this,
 		aux = new Array(this.length),
-		width, i, lBegin, lEnd, rBegin, rEnd;
+		width, i;
+
+	var mergePair = function(lBegin, width) {
+		var lEnd = lBegin + width,
+			rBegin = lEnd;
+			rEnd = Math.min(rBegin + width, arr.length);
+
+		if (lEnd <= rEnd) {
+			merge(arr, lBegin, lEnd, rBegin, rEnd, aux, lBegin);
+		}
+	}
 
 	for (width = 1; width < this.length; width *= 2) {
 		for (i = 0; i < this.length; i += 2*width) {
-			lBegin = i;
-			lEnd = i + width;
-			rBegin = lEnd;
-			rEnd = Math.min(rBegin + width, this.length);
-
-			if (lEnd > rEnd)
-				break;
-
-			merge(arr, lBegin, lEnd, rBegin, rEnd, aux, i);
+			mergePair(i, width);
 		}
 		
 		arr = [aux, aux = arr][0];
