@@ -16,6 +16,7 @@
 		C3EF6FDD1824D7A80059B2AD /* router.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = router.js; sourceTree = "<group>"; };
 		C3EF6FDE1824D7A80059B2AD /* server.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		C3EF6FDF1824D7A80059B2AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C3EF6FE11824DC490059B2AD /* merge_sort.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = merge_sort.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -32,6 +33,7 @@
 		C3EF6FD21823D3140059B2AD /* algo */ = {
 			isa = PBXGroup;
 			children = (
+				C3EF6FE11824DC490059B2AD /* merge_sort.js */,
 				C3EF6FD91824D2E50059B2AD /* array_ext.js */,
 				C3EF6FD41823D3140059B2AD /* radix_sort.js */,
 				C3EF6FD31823D3140059B2AD /* main.js */,
