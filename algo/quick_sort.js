@@ -26,13 +26,10 @@ function partition(arr, begin, end) {
 
 ///
 Array.prototype.quickSort = function() {
-	var self = this,
-		partsToSort = [{begin: 0, end: self.length}];
-
-	self.shuffle();
-
-	function split(part) {
-		var ends = partition(self, part.begin, part.end);
+	var partsToSort = [{begin: 0, end: this.length}];
+	
+	var split = (function(part) {
+		var ends = partition(this, part.begin, part.end);
 
 		var pieces = [];
 		if (part.begin < ends.begin) {
@@ -43,8 +40,9 @@ Array.prototype.quickSort = function() {
 		}
 
 		return pieces;
-	}
+	}).bind(this);
 
+	this.shuffle();
 	while (partsToSort.length > 0) {
 		partsToSort.forEach(function(part, index) {
 			partsToSort.splice(index, 1);
