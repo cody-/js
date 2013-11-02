@@ -21,7 +21,7 @@ function BinaryHeap(arr) {
 	}).bind(this);
 
 	///
-	function sink(ind) {
+	var sink = function(ind) {
 		var children = childrenOf(ind),
 			maxChild;
 
