@@ -5,23 +5,28 @@ require("./array_ext");
 
 ///
 function BinaryHeap(arr) {
+	var self = this;
+	this.arr = arr;
+	this.length = arr.length;
+	buildHeap();
+
 	///
-	var childrenOf = (function(parentIndex) {
+	function childrenOf(parentIndex) {
 		var l = (parentIndex + 1) * 2 - 1,
 			r = l + 1,
 			children = [];
 
-		if (l < this.length) {
+		if (l < self.length) {
 			children.push(l);
-			if (r < this.length) {
+			if (r < self.length) {
 				children.push(r);
 			}
 		}
 		return children;
-	}).bind(this);
+	}
 
 	///
-	var sink = function(ind) {
+	function sink(ind) {
 		var children = childrenOf(ind),
 			maxChild;
 
@@ -43,11 +48,11 @@ function BinaryHeap(arr) {
 	}
 
 	///
-	var buildHeap = (function() {
+	function buildHeap() {
 		for (var i = arr.length - 1; i >= 0; --i) {
 			sink(i);
 		}
-	}).bind(this);
+	}
 
 	///
 	this.max = function() {
@@ -56,10 +61,6 @@ function BinaryHeap(arr) {
 		sink(0);
 		return this.arr[this.length];
 	}
-
-	this.arr = arr;
-	this.length = arr.length;
-	buildHeap();
 }
 
 exports.BinaryHeap = BinaryHeap;
