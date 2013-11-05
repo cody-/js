@@ -26,6 +26,8 @@
 		C3EF706E1828CB400059B2AD /* sample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sample.js; sourceTree = "<group>"; };
 		C3EF706F1828CB400059B2AD /* some.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = some.js; sourceTree = "<group>"; };
 		C3EF70701828CDC00059B2AD /* stack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stack.js; sourceTree = "<group>"; };
+		C3EF7072182918830059B2AD /* codeParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = codeParser.js; sourceTree = "<group>"; };
+		C3EF7073182918830059B2AD /* mapParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mapParser.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -69,6 +71,7 @@
 		C3EF6FE61828CB400059B2AD /* interview */ = {
 			isa = PBXGroup;
 			children = (
+				C3EF7071182918830059B2AD /* parsers */,
 				C3EF706C1828CB400059B2AD /* package.json */,
 				C3EF706D1828CB400059B2AD /* parser.js */,
 				C3EF706E1828CB400059B2AD /* sample.js */,
@@ -76,6 +79,15 @@
 				C3EF706F1828CB400059B2AD /* some.js */,
 			);
 			path = interview;
+			sourceTree = "<group>";
+		};
+		C3EF7071182918830059B2AD /* parsers */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF7072182918830059B2AD /* codeParser.js */,
+				C3EF7073182918830059B2AD /* mapParser.js */,
+			);
+			path = parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
