@@ -78,29 +78,38 @@ Stream.prototype.emit = function(event, data){
 
 /// @data Buffer
 Stream.prototype.write = function(data) {
-    var dataPos = 0;
+	var processData = (function(data, offset) {
+		while(offset < data.length) {
+			if (this.stack.empty()) {
+				this.stack.push(parseCode);
+			}
+
+			var currentParser = this.stack.top();
+			offset = currentParser.go(data, offset);
+			if (currentParser.result !== undefined) {
+				this.stack.pop();
+				this.emit("data", currentParser.result);
+			} else {
+				this.tail = data.slice(offset, data.length);
+				break;
+			}
+		}
+	}).bind(this);
+
     if (this.tail) {
         var bytesToJoin = this.stack.top().expectedLen() - this.tail.length;
-        var buf = Buffer.concat(this.tail, data.slice(0, bytesToJoin));
-        this.stack.top().go(buff, 0);
-        dataPos = bytesToJoin;
+		if (bytesToJoin > data.length) {
+			this.tail = Buffer.concat(this.tail, data);
+			return;
+		}
+
+        this.tail = Buffer.concat(this.tail, data.slice(0, bytesToJoin));
+		processData(this.tail, 0);
+		processData(data, bytesToJoin);
         this.tail = null;
-    }
-    
-    while(dataPos < data.length) {
-        if (this.stack.empty()) {
-            this.stack.push(parseCode);
-        }
-        dataPos = this.stack.top().go(data, dataPos);
-        if (p.result !== undefined) {
-          var p = this.stack.pop();
-          this.emit("data",p.result);
-        } else {
-            this.tail = data.slice(dataPos, data.length);
-            break;
-        }
-    }
-    this.events["data"](data);
+    } else {
+		processData(data, 0);
+	}
 }
 
 ///
