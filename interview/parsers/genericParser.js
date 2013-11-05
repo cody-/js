@@ -1,13 +1,19 @@
-///
-function CodeParser() {
+var Parser = require("./parser.js").Parser,
+	MapParser = require("./mapParser.js").MapParser,
+	inherits = require("util").inherits;
 
+///
+function GenericParser() {
+	GenericParser.super_.prototype.constructor.apply(this, {addToStack: false});
 }
+inherits(GenericParser, Parser);
 
 ///
-CodeParser.prototype.go = function(data, offset) {
-	var code = data[offset];
-    console.log(code.toString(2));
-    var type;
+GenericParser.prototype.go = function(data, offset) {
+	var code = data[offset],
+		type,
+		parser;
+
     switch(code){
         case 0xc0: type = "nil"; break;
         case 0xc2: type = "false"; break;
@@ -42,6 +48,7 @@ CodeParser.prototype.go = function(data, offset) {
                 type = "Positive FixNum";
             } else if (0x80 <= code && code <= 0x8f) {
                 type = "FixMap";
+				parser = new MapParser(code & 1111);
             } else if (0x90 <= code && code <= 0x9f) {
                 type = "FixArray";
             } else if (0xa0 <= code && code <= 0xbf) {
@@ -51,8 +58,16 @@ CodeParser.prototype.go = function(data, offset) {
             }
             break;	
     }
-    
-    console.log("Type: ", type)
+
+	console.log("GenericParser: code == %s, type == %s", code.toString(2), type)
+
+	parser.on("success", (function(result, offset) {
+		this.done(result, offset);
+	}).bind(this));
+	parser.on("fail", (function(offset) {
+		this.fail(offset);
+	}).bind(this));
+	parser.go(data, offset + 1);
 }
 
-exports.CodeParser = CodeParser;
+exports.GenericParser = GenericParser;

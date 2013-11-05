@@ -1,32 +1,40 @@
 //
+
 var mkStack = require("./stack.js").mkStack,
-	CodeParser = require("./parsers/codeParser.js").CodeParser,
+	Parser = require("./parsers/parser.js").Parser,
+	GenericParser = require("./parsers/genericParser.js").GenericParser,
 	EventEmitter = require("events").EventEmitter,
 	inherits = require("util").inherits;
 
 ///
 function Stream() {
     this.parserStack = mkStack();
-    this.tail;
+    this.tail = null;
+	Parser.prototype.stack = this.parserStack;
 }
 inherits(Stream, EventEmitter);
 
 ///
 Stream.prototype.parse = function(data, offset) {
-	if (this.parserStack.empty()) {
-		this.parserStack.push(new CodeParser({
-			"success": (function(result, newOffset) {
-				this.parserStack.pop();
-				this.emit("data", result);
-				this.parse(data, newOffset);
-			}).bind(this),
-			"fail": (function(newOffset) {
-				this.tail = data.slice(offset, data.length);
-			}).bind(this)
-		}));
+	if (offset >= data.length) {
+		return;
 	}
 
-	this.parserStack.top().go(data, offset);
+	if (!this.parserStack.empty()) {
+		this.parserStack.top().go(data, offset);
+		return;
+	}
+
+	var parser = new GenericParser();
+	parser.on("success", (function(result, newOffset) {
+		this.emit("data", result);
+		this.parse(data, newOffset);
+	}).bind(this));
+	parser.on("fail", (function(newOffset) {
+		this.tail = data.slice(offset, data.length);
+	}).bind(this));
+
+	parser.go(data, offset);
 }
 
 /// @data Buffer
@@ -53,8 +61,3 @@ Stream.prototype.end = function() {
 }
 
 exports.Stream = Stream;
-
-
-
-
-
