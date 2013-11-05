@@ -21,15 +21,21 @@
 		C3EF6FE318254BF80059B2AD /* heap_sort.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = heap_sort.js; sourceTree = "<group>"; };
 		C3EF6FE418254C730059B2AD /* binary_heap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = binary_heap.js; sourceTree = "<group>"; };
 		C3EF6FE518255DDD0059B2AD /* kmp_search.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = kmp_search.js; sourceTree = "<group>"; };
+		C3EF706C1828CB400059B2AD /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		C3EF706D1828CB400059B2AD /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
+		C3EF706E1828CB400059B2AD /* sample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sample.js; sourceTree = "<group>"; };
+		C3EF706F1828CB400059B2AD /* some.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = some.js; sourceTree = "<group>"; };
+		C3EF70701828CDC00059B2AD /* stack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stack.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		C394D1ED1816C7BB000533A1 = {
 			isa = PBXGroup;
 			children = (
+				C3EF6FE61828CB400059B2AD /* interview */,
 				C3EF6FDA1824D7A80059B2AD /* node_beginner */,
-				C3EF6FDF1824D7A80059B2AD /* README.md */,
 				C3EF6FD21823D3140059B2AD /* algo */,
+				C3EF6FDF1824D7A80059B2AD /* README.md */,
 				C394D1F8181792B6000533A1 /* test.js */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +64,18 @@
 				C3EF6FDE1824D7A80059B2AD /* server.js */,
 			);
 			path = node_beginner;
+			sourceTree = "<group>";
+		};
+		C3EF6FE61828CB400059B2AD /* interview */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF706C1828CB400059B2AD /* package.json */,
+				C3EF706D1828CB400059B2AD /* parser.js */,
+				C3EF706E1828CB400059B2AD /* sample.js */,
+				C3EF70701828CDC00059B2AD /* stack.js */,
+				C3EF706F1828CB400059B2AD /* some.js */,
+			);
+			path = interview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
