@@ -27,8 +27,8 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xd4: case 0xd5: case 0xd6: case 0xd7: case 0xd8: case 0xd9:
             type = "reserved";
             break;
-        case 0xca: type = "float"; break;
-        case 0xcb: type = "double"; break;
+        case 0xca: parser = new NumberParser("FloatBE", 4); break;
+        case 0xcb: parser = new NumberParser("DoubleBE", 8); break;
         case 0xcc: parser = new NumberParser("UInt8", 1); break;
         case 0xcd: parser = new NumberParser("UInt16BE", 2); break;
         case 0xce: parser = new NumberParser("UInt32BE", 4); break;

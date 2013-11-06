@@ -97,5 +97,12 @@ test('int 64', function() {
 	check(-0x8000000000000000);
 });
 
+// TODO(cody): may be some tests for float, but looks like msgpack doesn't actually use float
+
+///
+test('double', function() {
+	check(parseFloat('3.14'));
+});
+
 }); // suite('Simple data')
 
