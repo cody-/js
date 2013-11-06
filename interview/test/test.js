@@ -2,7 +2,7 @@
 
 var assert = require("assert"),
 	msgpack = require("msgpack"),
-	parser = require("./parser"),
+	parser = require("../parser.js"),
 	s = new parser.Stream(),
 	receivedData;
 

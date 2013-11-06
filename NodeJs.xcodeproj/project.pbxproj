@@ -29,9 +29,9 @@
 		C3EF7072182918830059B2AD /* genericParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = genericParser.js; sourceTree = "<group>"; };
 		C3EF7073182918830059B2AD /* mapParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mapParser.js; sourceTree = "<group>"; };
 		C3EF7074182947B60059B2AD /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
-		C3EF7075182A2A250059B2AD /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		C3EF707A182A2D110059B2AD /* run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		C3EF707B182A33790059B2AD /* numberParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = numberParser.js; sourceTree = "<group>"; };
+		C3EF707D182A496A0059B2AD /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -75,13 +75,13 @@
 		C3EF6FE61828CB400059B2AD /* interview */ = {
 			isa = PBXGroup;
 			children = (
+				C3EF707C182A496A0059B2AD /* test */,
 				C3EF7071182918830059B2AD /* parsers */,
 				C3EF706C1828CB400059B2AD /* package.json */,
 				C3EF706D1828CB400059B2AD /* parser.js */,
 				C3EF706E1828CB400059B2AD /* sample.js */,
 				C3EF70701828CDC00059B2AD /* stack.js */,
 				C3EF706F1828CB400059B2AD /* some.js */,
-				C3EF7075182A2A250059B2AD /* test.js */,
 				C3EF707A182A2D110059B2AD /* run.sh */,
 			);
 			path = interview;
@@ -96,6 +96,14 @@
 				C3EF7073182918830059B2AD /* mapParser.js */,
 			);
 			path = parsers;
+			sourceTree = "<group>";
+		};
+		C3EF707C182A496A0059B2AD /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF707D182A496A0059B2AD /* test.js */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
