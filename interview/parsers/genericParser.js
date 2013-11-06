@@ -1,4 +1,5 @@
 var Parser = require("./parser.js").Parser,
+	NumberParser = require("./numberParser.js").NumberParser,
 	MapParser = require("./mapParser.js").MapParser,
 	inherits = require("util").inherits;
 
@@ -28,10 +29,10 @@ GenericParser.prototype.exec = function(data, offset) {
             break;
         case 0xca: type = "float"; break;
         case 0xcb: type = "double"; break;
-        case 0xcc: type = "uint 8"; break;
-        case 0xcd: type = "uint 16"; break;
-        case 0xce: type = "uint 32"; break;
-        case 0xcf: type = "uint 64"; break;
+        case 0xcc: parser = new NumberParser("UInt8", 1); break;
+        case 0xcd: parser = new NumberParser("UInt16BE", 2); break;
+        case 0xce: parser = new NumberParser("UInt32BE", 4); break;
+        case 0xcf: parser = new NumberParser("UInt64BE", 8); break;
 
         case 0xd0: type = "int 8"; break;
         case 0xd1: type = "int 16"; break;
@@ -47,8 +48,7 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xde: type = "map 16"; break;
         case 0xdd: type = "map 32"; break;
         default:
-            if (0x00 <= code && code <= 0x7f) {
-                type = "positive fixint";
+            if (0x00 <= code && code <= 0x7f) { // positive fixint
 				val = code & 0x7f;
             } else if (0x80 <= code && code <= 0x8f) {
                 type = "FixMap";
@@ -57,14 +57,17 @@ GenericParser.prototype.exec = function(data, offset) {
                 type = "FixArray";
             } else if (0xa0 <= code && code <= 0xbf) {
                 type = "FixRaw";
-            } else if (0xe0 <= code && code <= 0xff) {
-                type = "negative fixint";
+            } else if (0xe0 <= code && code <= 0xff) { // negative fixint
 				val = code - 0x100;
             }
             break;	
     }
 
-	console.log("GenericParser: code == %s, type == %s", code.toString(2), type);
+	// TODO(cody): remove this logging
+	if (type !== undefined) {
+		console.log("GenericParser: code == %s, type == %s", code.toString(2), type);
+	}
+
 	if (val !== undefined) {
 		this.emit("success", val, offset + 1);
 		return;
