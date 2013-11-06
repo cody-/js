@@ -73,5 +73,29 @@ test('uint 64', function() {
 //	check(0xffffffffffffffff);
 });
 
+///
+test('int 8', function() {
+	check(-33);
+	check(-0x80);
+});
+
+///
+test('int 16', function() {
+	check(-0x81);
+	check(-0x8000);
+});
+
+///
+test('int 32', function() {
+	check(-0x8001);
+	check(-0x80000000);
+});
+
+///
+test('int 64', function() {
+	check(-0x80000001);
+	check(-0x8000000000000000);
+});
+
 }); // suite('Simple data')
 

@@ -34,10 +34,10 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xce: parser = new NumberParser("UInt32BE", 4); break;
         case 0xcf: parser = new NumberParser("UInt64BE", 8); break;
 
-        case 0xd0: type = "int 8"; break;
-        case 0xd1: type = "int 16"; break;
-        case 0xd2: type = "int 32"; break;
-        case 0xd3: type = "int 64"; break;
+        case 0xd0: parser = new NumberParser("Int8", 1); break;
+        case 0xd1: parser = new NumberParser("Int16BE", 2); break;
+        case 0xd2: parser = new NumberParser("Int32BE", 4); break;
+        case 0xd3: parser = new NumberParser("Int64BE", 8); break;
 
         case 0xda: type = "raw 16"; break;
         case 0xdb: type = "raw 32"; break;

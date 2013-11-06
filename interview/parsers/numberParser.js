@@ -9,6 +9,13 @@ Buffer.prototype.readUInt64BE = function(offset) {
 	return high * 0x100000000 + low;
 }
 
+Buffer.prototype.readInt64BE = function(offset) {
+	var high = this.readInt32BE(offset),
+		low = this.readUInt32BE(offset + 4);
+
+	return high * 0x100000000 + low;
+}
+
 ///
 function NumberParser(type, bytes) {
 	NumberParser.super_.prototype.constructor.apply(this);
