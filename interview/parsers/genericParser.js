@@ -4,7 +4,7 @@ var Parser = require("./parser.js").Parser,
 
 ///
 function GenericParser() {
-	GenericParser.super_.prototype.constructor.apply(this, {addToStack: false});
+	GenericParser.super_.prototype.constructor.apply(this);
 }
 inherits(GenericParser, Parser);
 
