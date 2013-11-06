@@ -57,6 +57,7 @@ Stream.prototype.write = function(data) {
 
 ///
 Stream.prototype.end = function() {
+	// TODO(cody): clear stack
     this.emit("end");
 }
 

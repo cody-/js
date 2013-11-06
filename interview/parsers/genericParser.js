@@ -48,10 +48,10 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xdd: type = "map 32"; break;
         default:
             if (0x00 <= code && code <= 0x7f) {
-                type = "Positive FixNum";
+                type = "positive fixint";
             } else if (0x80 <= code && code <= 0x8f) {
                 type = "FixMap";
-				parser = new MapParser(code & 1111);
+				parser = new MapParser(code & 0xf);
             } else if (0x90 <= code && code <= 0x9f) {
                 type = "FixArray";
             } else if (0xa0 <= code && code <= 0xbf) {
@@ -62,13 +62,17 @@ GenericParser.prototype.exec = function(data, offset) {
             break;	
     }
 
-	console.log("GenericParser: code == %s, type == %s", code.toString(2), type)
+	console.log("GenericParser: code == %s, type == %s", code.toString(2), type);
+	if (!parser) {
+		this.emit("success", code, offset + 1);
+		return;
+	}
 
 	parser.on("success", (function(result, offset) {
-		this.done(result, offset);
+		this.emit("success", result, offset);
 	}).bind(this));
 	parser.on("fail", (function(offset) {
-		this.fail(offset);
+		this.emit("fail", offset);
 	}).bind(this));
 	parser.go(data, offset + 1);
 }

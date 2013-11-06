@@ -24,7 +24,7 @@ Parser.prototype.go = function(data, offset) {
 ///
 Parser.prototype.emit = function(event) {
 	if (event === "success") {
-		Parser.prototype.pop();
+		Parser.prototype.stack.pop();
 	}
 	Parser.super_.prototype.emit.apply(this, arguments);
 }
