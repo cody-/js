@@ -14,7 +14,7 @@ GenericParser.prototype.expectedLen = 1;
 ///
 GenericParser.prototype.exec = function(data, offset) {
 	var code = data[offset],
-		type,
+		type, val,
 		parser;
 
     switch(code){
@@ -49,6 +49,7 @@ GenericParser.prototype.exec = function(data, offset) {
         default:
             if (0x00 <= code && code <= 0x7f) {
                 type = "positive fixint";
+				val = code & 0x7f;
             } else if (0x80 <= code && code <= 0x8f) {
                 type = "FixMap";
 				parser = new MapParser(code & 0xf);
@@ -57,14 +58,15 @@ GenericParser.prototype.exec = function(data, offset) {
             } else if (0xa0 <= code && code <= 0xbf) {
                 type = "FixRaw";
             } else if (0xe0 <= code && code <= 0xff) {
-                type = "Negative FixNum";
+                type = "negative fixint";
+				val = code - 0x100;
             }
             break;	
     }
 
 	console.log("GenericParser: code == %s, type == %s", code.toString(2), type);
-	if (!parser) {
-		this.emit("success", code, offset + 1);
+	if (val !== undefined) {
+		this.emit("success", val, offset + 1);
 		return;
 	}
 

@@ -23,14 +23,24 @@ function send(data) {
 
 ///
 suite('Simple data', function(){
-	setup(function() {
-		receivedData = undefined;
-	});
 
-	test('positive fixint', function() {
-		assert.equal(10, send(10));
-		assert.equal(0, send(0));
-		assert.equal(127, send(127));
-	});
+///
+setup(function() {
+	receivedData = undefined;
 });
+
+///
+test('positive fixint', function() {
+	assert.equal(10, send(10));
+	assert.equal(0, send(0));
+	assert.equal(127, send(127));
+});
+
+///
+test('negative fixint', function() {
+	assert.equal(-1, send(-1));
+	assert.equal(-32, send(-32));
+});
+
+}); // suite('Simple data')
 
