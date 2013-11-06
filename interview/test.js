@@ -104,5 +104,16 @@ test('double', function() {
 	check(parseFloat('3.14'));
 });
 
+///
+test('null', function() {
+	check(null);
+});
+
+///
+test('bool', function() {
+	check(true);
+	check(false);
+});
+
 }); // suite('Simple data')
 

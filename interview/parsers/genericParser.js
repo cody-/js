@@ -19,9 +19,9 @@ GenericParser.prototype.exec = function(data, offset) {
 		parser;
 
     switch(code){
-        case 0xc0: type = "nil"; break;
-        case 0xc2: type = "false"; break;
-        case 0xc3: type = "true"; break;
+        case 0xc0: val = null; break;
+        case 0xc2: val = false; break;
+        case 0xc3: val = true; break;
         case 0xc1:
         case 0xc4: case 0xc5: case 0xc6: case 0xc7: case 0xc8: case 0xc9:
         case 0xd4: case 0xd5: case 0xd6: case 0xd7: case 0xd8: case 0xd9:
