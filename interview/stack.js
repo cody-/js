@@ -15,6 +15,9 @@ function mkStack() {
 		},
 		empty: function() {
 			return arr.length === 0;
+		},
+		clear: function() {
+			arr = [];
 		}
 	}
 }

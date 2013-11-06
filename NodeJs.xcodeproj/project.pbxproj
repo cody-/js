@@ -31,7 +31,8 @@
 		C3EF7074182947B60059B2AD /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
 		C3EF707A182A2D110059B2AD /* run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		C3EF707B182A33790059B2AD /* numberParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = numberParser.js; sourceTree = "<group>"; };
-		C3EF707D182A496A0059B2AD /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		C3EF707D182A496A0059B2AD /* simple.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = simple.js; sourceTree = "<group>"; };
+		C3EF707E182A4A330059B2AD /* container.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = container.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -101,7 +102,8 @@
 		C3EF707C182A496A0059B2AD /* test */ = {
 			isa = PBXGroup;
 			children = (
-				C3EF707D182A496A0059B2AD /* test.js */,
+				C3EF707E182A4A330059B2AD /* container.js */,
+				C3EF707D182A496A0059B2AD /* simple.js */,
 			);
 			path = test;
 			sourceTree = "<group>";

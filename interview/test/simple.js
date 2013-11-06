@@ -7,13 +7,8 @@ var assert = require("assert"),
 	receivedData;
 
 s.on("data", function(data) {
-//	console.log("Data received: ", data);
 	receivedData = data;
-})
-
-s.on("end", function() {
-//    console.log("End");
-})
+});
 
 function send(data) {
 	s.write(msgpack.pack(data));
@@ -31,6 +26,7 @@ suite('Simple data', function(){
 ///
 setup(function() {
 	receivedData = undefined;
+	s.end();
 });
 
 ///
