@@ -13,9 +13,20 @@ inherits(Parser, EventEmitter);
 Parser.prototype.stack = [];
 
 ///
-Parser.prototype.done = function(result, offset) {
-	Parser.prototype.pop();
-	this.emit("success", result, offset);
+Parser.prototype.go = function(data, offset) {
+	if (data.length - offset < this.expectedLen) {
+		this.emit("fail", offset);
+	} else {
+		this.exec(data, offset);
+	}
+}
+
+///
+Parser.prototype.emit = function(event) {
+	if (event === "success") {
+		Parser.prototype.pop();
+	}
+	Parser.super_.prototype.emit.apply(this, arguments);
 }
 
 exports.Parser = Parser;

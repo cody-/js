@@ -9,7 +9,10 @@ function GenericParser() {
 inherits(GenericParser, Parser);
 
 ///
-GenericParser.prototype.go = function(data, offset) {
+GenericParser.prototype.expectedLen = 1;
+
+///
+GenericParser.prototype.exec = function(data, offset) {
 	var code = data[offset],
 		type,
 		parser;

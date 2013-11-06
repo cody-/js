@@ -11,7 +11,7 @@ function MapParser(len) {
 inherits(MapParser, Parser);
 
 ///
-MapParser.prototype.go = function(data, offset) {
+MapParser.prototype.exec = function(data, offset) {
 	console.log("MapParser: len == %d", this.len);
 }
 
