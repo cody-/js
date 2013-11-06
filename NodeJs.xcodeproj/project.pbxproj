@@ -25,7 +25,6 @@
 		C3EF706D1828CB400059B2AD /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
 		C3EF706E1828CB400059B2AD /* sample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sample.js; sourceTree = "<group>"; };
 		C3EF706F1828CB400059B2AD /* some.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = some.js; sourceTree = "<group>"; };
-		C3EF70701828CDC00059B2AD /* stack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stack.js; sourceTree = "<group>"; };
 		C3EF7072182918830059B2AD /* genericParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = genericParser.js; sourceTree = "<group>"; };
 		C3EF7073182918830059B2AD /* mapParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mapParser.js; sourceTree = "<group>"; };
 		C3EF7074182947B60059B2AD /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
@@ -81,7 +80,6 @@
 				C3EF706C1828CB400059B2AD /* package.json */,
 				C3EF706D1828CB400059B2AD /* parser.js */,
 				C3EF706E1828CB400059B2AD /* sample.js */,
-				C3EF70701828CDC00059B2AD /* stack.js */,
 				C3EF706F1828CB400059B2AD /* some.js */,
 				C3EF707A182A2D110059B2AD /* run.sh */,
 			);

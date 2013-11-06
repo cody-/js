@@ -5,15 +5,17 @@ var EventEmitter = require("events").EventEmitter,
 
 ///
 function Parser() {
-	Parser.prototype.stack.push(this);
+	this.delegate = null;
 }
 inherits(Parser, EventEmitter);
 
 ///
-Parser.prototype.stack = [];
-
-///
 Parser.prototype.go = function(data, offset) {
+	if (this.delegate) {
+		delegate.go(data, offset);
+		return;
+	}
+
 	if (data.length - offset < this.expectedLen) {
 		this.emit("fail", offset);
 	} else {
@@ -22,11 +24,12 @@ Parser.prototype.go = function(data, offset) {
 }
 
 ///
-Parser.prototype.emit = function(event) {
-	if (event === "success") {
-		Parser.prototype.stack.pop();
-	}
-	Parser.super_.prototype.emit.apply(this, arguments);
+Parser.prototype.delegateWork = function(parser, data, offset) {
+	parser.on("success", (function() {
+		this.delegate = null;
+	}).bind(this));
+	this.delegate = parser;
+	this.delegate.go(data, offset);
 }
 
 exports.Parser = Parser;

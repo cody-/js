@@ -79,7 +79,7 @@ GenericParser.prototype.exec = function(data, offset) {
 	parser.on("fail", (function(offset) {
 		this.emit("fail", offset);
 	}).bind(this));
-	parser.go(data, offset + 1);
+	this.delegateWork(parser, data, offset + 1);
 }
 
 exports.GenericParser = GenericParser;
