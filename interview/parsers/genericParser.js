@@ -50,8 +50,7 @@ GenericParser.prototype.exec = function(data, offset) {
         default:
             if (0x00 <= code && code <= 0x7f) { // positive fixint
 				val = code & 0x7f;
-            } else if (0x80 <= code && code <= 0x8f) {
-                type = "FixMap";
+            } else if (0x80 <= code && code <= 0x8f) { // FixMap (up to 15 elements)
 				parser = new MapParser(code & 0xf);
             } else if (0x90 <= code && code <= 0x9f) {
                 type = "FixArray";

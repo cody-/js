@@ -17,7 +17,7 @@ function send(data) {
 }
 
 function check(val) {
-	assert.strictEqual(val, send(val));
+	assert.equal(JSON.stringify(val), JSON.stringify(send(val)));
 }
 
 suite('Container', function() {
@@ -31,6 +31,7 @@ setup(function() {
 ///
 test('FixMap', function() {
 	check({});
+	check({a: 10});
 });
 
 }); // suite('Container')

@@ -100,8 +100,8 @@
 		C3EF707C182A496A0059B2AD /* test */ = {
 			isa = PBXGroup;
 			children = (
-				C3EF707E182A4A330059B2AD /* container.js */,
 				C3EF707D182A496A0059B2AD /* simple.js */,
+				C3EF707E182A4A330059B2AD /* container.js */,
 			);
 			path = test;
 			sourceTree = "<group>";
