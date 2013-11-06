@@ -67,7 +67,10 @@ test('uint 32', function() {
 ///
 test('uint 64', function() {
 	check(0x100000000);
-	check(0xfffffffffffffff);
+	check(0xefffffffffffffff);
+
+//  This passess 0x10000000000000000 to the check function instead of 0xffffffffffffffff
+//	check(0xffffffffffffffff);
 });
 
 }); // suite('Simple data')
