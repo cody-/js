@@ -20,6 +20,14 @@ function check(val) {
 	assert.strictEqual(val, send(val));
 }
 
+function strOfLen(len) {
+	var str = "";
+	for (var i = 0; i < len; ++i) {
+		str += "a";
+	}
+	return str;
+}
+
 ///
 suite('Simple data', function(){
 
@@ -109,6 +117,12 @@ test('null', function() {
 test('bool', function() {
 	check(true);
 	check(false);
+});
+
+///
+test('fixstr', function() {
+	check("str");
+	check(strOfLen(31));
 });
 
 }); // suite('Simple data')

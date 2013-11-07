@@ -1,5 +1,6 @@
 var Parser = require("./parser.js").Parser,
 	NumberParser = require("./numberParser.js").NumberParser,
+	StringParser = require("./stringParser.js").StringParser,
 	MapParser = require("./mapParser.js").MapParser,
 	inherits = require("util").inherits;
 
@@ -24,7 +25,7 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xc3: val = true; break;
         case 0xc1:
         case 0xc4: case 0xc5: case 0xc6: case 0xc7: case 0xc8: case 0xc9:
-        case 0xd4: case 0xd5: case 0xd6: case 0xd7: case 0xd8: case 0xd9:
+        case 0xd4: case 0xd5: case 0xd6: case 0xd7: case 0xd8:
             type = "reserved";
             break;
         case 0xca: parser = new NumberParser("FloatBE", 4); break;
@@ -39,8 +40,9 @@ GenericParser.prototype.exec = function(data, offset) {
         case 0xd2: parser = new NumberParser("Int32BE", 4); break;
         case 0xd3: parser = new NumberParser("Int64BE", 8); break;
 
-        case 0xda: type = "raw 16"; break;
-        case 0xdb: type = "raw 32"; break;
+		case 0xd9: type = "str 8"; break;
+        case 0xda: type = "str 16"; break;
+        case 0xdb: type = "str 32"; break;
         
         case 0xdc: type = "array 16"; break;
         case 0xdd: type = "array 32"; break;
@@ -55,7 +57,8 @@ GenericParser.prototype.exec = function(data, offset) {
             } else if (0x90 <= code && code <= 0x9f) {
                 type = "FixArray";
             } else if (0xa0 <= code && code <= 0xbf) {
-                type = "FixRaw";
+                type = "fixstr";
+				parser = new StringParser(code & 0x1f);
             } else if (0xe0 <= code && code <= 0xff) { // negative fixint
 				val = code - 0x100;
             }

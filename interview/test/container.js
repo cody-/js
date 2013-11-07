@@ -28,10 +28,10 @@ setup(function() {
 	s.end();
 });
 
-///
-test('FixMap', function() {
-	check({});
-	check({a: 10});
-});
+/////
+//test('FixMap', function() {
+//	check({});
+//	check({a: 10});
+//});
 
 }); // suite('Container')

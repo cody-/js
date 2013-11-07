@@ -32,6 +32,7 @@
 		C3EF707B182A33790059B2AD /* numberParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = numberParser.js; sourceTree = "<group>"; };
 		C3EF707D182A496A0059B2AD /* simple.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = simple.js; sourceTree = "<group>"; };
 		C3EF707E182A4A330059B2AD /* container.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = container.js; sourceTree = "<group>"; };
+		C3EF7082182B83310059B2AD /* stringParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stringParser.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -89,6 +90,7 @@
 		C3EF7071182918830059B2AD /* parsers */ = {
 			isa = PBXGroup;
 			children = (
+				C3EF7082182B83310059B2AD /* stringParser.js */,
 				C3EF707B182A33790059B2AD /* numberParser.js */,
 				C3EF7074182947B60059B2AD /* parser.js */,
 				C3EF7072182918830059B2AD /* genericParser.js */,
